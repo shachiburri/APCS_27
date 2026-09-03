@@ -1,14 +1,18 @@
 /*
- *	Author:  
- *  Date: 
+ *	Author: David Neder
+ *  Date: 9/2/26
 */
 
 import java.util.Scanner;
 
 class starter {
 	public static void main(String args[]) {
-		// the string "I love to learn coding remotely." will appear in
-		// the command window when you compile and run this program.
-		System.out.print("I love to learn coding remotely."); 
+		String repeatedLine = "Happy Birthday, to you.";
+		String name = "Tristen";
+		String singleLine = "Happy Birthday dear " + name + ",";
+		System.out.println(repeatedLine);
+		System.out.println(repeatedLine);
+		System.out.println(singleLine);
+		System.out.println(repeatedLine);
 	}
 }
