@@ -1,6 +1,5 @@
 class error {
 	public static void main(String args[]) {
-        
 		System.out.println("Happy vacation day back!");
         System.out.println("What'd you do this weekend?\nI watched a movie!");
 
