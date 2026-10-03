@@ -119,5 +119,7 @@ class starter {
 		System.out.println("Charisma - " + charisma);
 		System.out.println("");
 		System.out.println("Good luck on your quest " + name + "!");
+
+		scanner.close();
 	}
 }
