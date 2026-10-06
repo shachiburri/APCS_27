@@ -1,9 +1,3 @@
-/*
- *	Author: David Neder
- *  Date: 10/2/26
- * 	Collaborator: -
- */
-
 import java.util.Scanner;
 
 public class starter
