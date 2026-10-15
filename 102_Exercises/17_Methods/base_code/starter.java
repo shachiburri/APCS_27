@@ -30,7 +30,7 @@ class starter {
 		if ((num2 - num1 == 1) && (num3 - num2 == 1)) {
 			System.out.println("These numbers are consecutive!!!");
 		}
-		else {r
+		else {
 			System.out.println("These numbers are not consecutive!!!");
 		}
 		return;
