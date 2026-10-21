@@ -1,6 +1,6 @@
 /*
- *	Author:  
- *  Date: 
+ *	Author: David Neder
+ *  Date: 10/15/26
 */
 
 import java.io.*;
@@ -13,9 +13,88 @@ class starter {
 	static ArrayList<String> arr = new ArrayList<String>();
 
 	public static void main(String args[]) throws InterruptedException {
-		// Write your code here!
+		Scanner scanner = new Scanner(System.in);
 
-		
+		System.out.println("Welcome to Type Quest!");
+		System.out.println("It is currently " + getTime() + " and we're ready to play!");
+		System.out.println("Given a sentence, type it as fast as possible!");
+		System.out.println();
+
+		populateArrayList();
+		if (arr.size() < 100) {
+			System.out.println("Unable to play: sentences.txt must contain 100 sentences.");
+			return;
+		}
+
+		while (true) {
+			System.out.println("------------------------------------------");
+			System.out.println("Would you like to: ");
+			System.out.println(" 1 - Play random");
+			System.out.println(" 2 - Play set");
+			System.out.println(" 3 - Quit");
+			System.out.println();
+
+			if (!scanner.hasNextLine()) {
+				return;
+			}
+			String choice = scanner.nextLine().trim();
+			String sentence;
+
+			if (choice.equals("3")) {
+				return;
+			} else if (choice.equals("1")) {
+				System.out.println("You've chosen to randomly select a sentence.");
+				sentence = getSentence();
+			} else if (choice.equals("2")) {
+				System.out.println("Please enter what number sentence you'd like to play:");
+				if (!scanner.hasNextLine()) {
+					return;
+				}
+
+				int sentenceNumber;
+				try {
+					sentenceNumber = Integer.parseInt(scanner.nextLine().trim());
+				} catch (NumberFormatException e) {
+					System.out.println("Please enter a number from 0 to 99.");
+					continue;
+				}
+				if (sentenceNumber < 0 || sentenceNumber > 99) {
+					System.out.println("Please enter a number from 0 to 99.");
+					continue;
+				}
+				sentence = getSentence(sentenceNumber);
+			} else {
+				System.out.println("You did not select correctly, please try again.");
+				continue;
+			}
+
+			System.out.println();
+			System.out.println("-----------------Your sentence is:-----------------");
+			System.out.println(sentence);
+			System.out.println("---------------------------------------------------");
+			System.out.println();
+
+			countdown();
+			startTimer();
+			if (!scanner.hasNextLine()) {
+				return;
+			}
+			String typed = scanner.nextLine();
+			double seconds = endTimer();
+
+			int errors = compareSentences(sentence, typed);
+			int letters = lettersInSentence(sentence);
+			int words = wordsInSentence(sentence);
+			double elapsed = Math.max(seconds, 0.001);
+			double lettersPerMinute = Math.floor(letters / elapsed * 60 * 100) / 100.0;
+			double wordsPerMinute = Math.floor(words / elapsed * 60 * 100) / 100.0;
+
+			System.out.println("Nice job! Here is your result!");
+			System.out.println("Time: " + seconds);
+			System.out.println("Errors: " + errors + " / " + letters + " letters");
+			System.out.println(lettersPerMinute + " letters per minute");
+			System.out.println(wordsPerMinute + " words per minute");
+		}	
 	}
 
 	// This method returns the local current time as a String
