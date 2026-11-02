@@ -1,6 +1,6 @@
 /*
- *	Author:  
- *  Date: 
+ *	Author: David Neder
+ *  Date: 10/30/26
 */
 
 import pkg.*;
@@ -23,8 +23,22 @@ class starter {
 	}
 
 	public static void main(String args[]) {
-		// Your code goes below here
-		PooleDwarf test = new PooleDwarf();
-		
-	}
+        PooleDwarf dwarf1 = new PooleDwarf(randName(), (int)(Math.random() * 100) + 1);
+        PooleDwarf dwarf2 = new PooleDwarf(randName(), (int)(Math.random() * 100) + 1);
+        PooleDwarf dwarf3 = new PooleDwarf(randName(), (int)(Math.random() * 100) + 1);
+        PooleDwarf dwarf4 = new PooleDwarf(randName(), (int)(Math.random() * 100) + 1);
+        PooleDwarf dwarf5 = new PooleDwarf(randName(), (int)(Math.random() * 100) + 1);
+        PooleDwarf dwarf6 = new PooleDwarf(randName(), (int)(Math.random() * 100) + 1);
+        PooleDwarf dwarf7 = new PooleDwarf(randName(), (int)(Math.random() * 100) + 1);
+
+        int duplicates = 0;
+        if (dwarf1.isSameName(dwarf2.getName())) duplicates++;
+        if (dwarf1.isSameName(dwarf3.getName())) duplicates++;
+        if (dwarf1.isSameName(dwarf4.getName())) duplicates++;
+        if (dwarf1.isSameName(dwarf5.getName())) duplicates++;
+        if (dwarf1.isSameName(dwarf6.getName())) duplicates++;
+        if (dwarf1.isSameName(dwarf7.getName())) duplicates++;
+
+        System.out.println("There were " + duplicates + " duplicates of " + dwarf1.getName() + ".");
+    }
 }

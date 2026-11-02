@@ -1,6 +1,6 @@
 /*
- *	Author:  
- *  Date: 
+ *	Author: David Neder
+ *  Date: 10/29/26
 */
 
 import pkg.*;
@@ -21,6 +21,5 @@ class starter {
 			shrek.interact(donkey);
 		}
 		System.out.println("That printed out " + i + " times");
-
 	}
 }

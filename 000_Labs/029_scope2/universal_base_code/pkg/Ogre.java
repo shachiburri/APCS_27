@@ -1,6 +1,6 @@
 /*
- *	Author:  
- *  Date: 
+ *	Author: David Neder
+ *  Date: 10/29/26
 */
 
 package pkg;
@@ -10,13 +10,14 @@ import java.util.Random;
 
 private class Ogre {
 	private String name;
+	private boolean ugly;
 
 	public Ogre() {
 		name = "Shrek";
-		boolean ugly = true;
+		ugly = true;
 	}
 
-	private String getName(){
+	public String getName(){
 		return name;
 	}
 
@@ -25,9 +26,6 @@ private class Ogre {
 	}
 
 	private void interact(Donkey donkey){
-		System.out.println(donkey.name + ", what are you doing in my swamp?!");
-		return;
+		System.out.println(donkey.getName() + ", what are you doing in my swamp?!");
 	}
-
-
 }
